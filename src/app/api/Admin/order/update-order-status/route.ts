@@ -2,19 +2,23 @@ import connectDB from "@/DB/connectDB";
 import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
 import Order from "@/model/Order";
+import { isObjectIdOrHexString,  } from "mongoose";
+import { ObjectId } from 'mongodb';
 
 export async function PUT(req: Request) {
   try {
+    
     await connectDB();
     const isAuthenticated = await AuthCheck(req);
 
     if (isAuthenticated === 'admin') {
       const data = await req.json();
       const  id = data
-      console.log(id)
+      console.log(id, isObjectIdOrHexString(id))
+      
       if(!id) return NextResponse.json({ success: false, message: "Please provide the order id!" });
 
-      const saveData = await Order.findOneAndUpdate(id , { isDelivered : true }  , { new: true });
+      const saveData = await Order.findOneAndUpdate( new ObjectId(id), { isDelivered : true }  , { new: true });
 
       if (saveData) {
 

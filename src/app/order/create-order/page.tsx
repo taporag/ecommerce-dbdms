@@ -196,7 +196,7 @@ export default function Page() {
                             wrapperClass=""
                             visible={true}
                         />
-                        <p className='text-sm mt-2 font-semibold text-orange-500'>Loading Hold Tight ....</p>
+                        <p className='text-sm mt-2 font-semibold text-orange-500'>Loading ....</p>
                     </div>
                 ) : (
 

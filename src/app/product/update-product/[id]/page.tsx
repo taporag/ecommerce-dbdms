@@ -190,7 +190,7 @@ export default function Page({ params, searchParams }: { params: pageParam, sear
               wrapperClass=""
               visible={true}
             />
-            <p className='text-sm mt-2 font-semibold text-orange-500'>updating product Hold Tight ....</p>
+            <p className='text-sm mt-2 font-semibold text-orange-500'>updating product   ....</p>
           </div>
         ) : (
 

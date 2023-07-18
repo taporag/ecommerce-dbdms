@@ -2,6 +2,7 @@ import connectDB from "@/DB/connectDB";
 import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
 import Product from "@/model/Product";
+import {ObjectId} from 'mongodb';
 
 export async function PUT(req: Request) {
   try {
@@ -12,7 +13,7 @@ export async function PUT(req: Request) {
       const data = await req.json();
       const  {name , _id  , description  , slug , feature , quantity , price , categoryID } = data
 
-      const saveData = await Product.findOneAndUpdate(_id , { productName : name , productDescription : description ,productSlug: slug , productPrice : price ,  productQuantity : quantity ,  productCategory : categoryID  }  , { new: true });
+      const saveData = await Product.findOneAndUpdate(new ObjectId(_id) , { productName : name , productDescription : description ,productSlug: slug , productPrice : price ,  productQuantity : quantity ,  productCategory : categoryID  }  , { new: true });
 
       if (saveData) {
 

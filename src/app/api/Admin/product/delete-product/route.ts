@@ -2,6 +2,7 @@ import connectDB from "@/DB/connectDB";
 import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
 import Product from "@/model/Product";
+import {ObjectId} from 'mongodb';
 
 
 export async function DELETE(req: Request) {
@@ -15,7 +16,7 @@ export async function DELETE(req: Request) {
 
       if(!id)  return NextResponse.json({ success: true, message: "Product ID is Required" });
 
-      const deleteData = await Product.findByIdAndDelete(id);
+      const deleteData = await Product.findByIdAndDelete(new ObjectId(id));
 
       if (deleteData) {
         return NextResponse.json({ success: true, message: "Product Deleted successfully!" });

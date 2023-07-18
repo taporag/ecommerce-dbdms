@@ -157,7 +157,7 @@ export default function AddCategory() {
                             wrapperClass=""
                             visible={true}
                         />
-                        <p className='text-sm mt-2 font-semibold text-orange-500'>Adding Category Hold Tight ....</p>
+                        <p className='text-sm mt-2 font-semibold text-orange-500'>Adding Category  ....</p>
                     </div>
                 ) : (
 

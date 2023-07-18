@@ -175,7 +175,7 @@ export default function AddProduct() {
                             wrapperClass=""
                             visible={true}
                         />
-                        <p className='text-sm mt-2 font-semibold text-orange-500'>Adding Product Hold Tight ....</p>
+                        <p className='text-sm mt-2 font-semibold text-orange-500'>Adding Product   ....</p>
                     </div>
                 ) : (
 
